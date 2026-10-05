@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter_kit/core/config/environment_config.dart';
+import 'package:flutter_starter_kit/core/config/environment_loader.dart';
 
 void main() {
-  runApp(const StarterKitApp());
+  final config = EnvironmentLoader.load();
+
+  runApp(App(config: config));
 }
 
-class StarterKitApp extends StatelessWidget {
-  const StarterKitApp({super.key});
+class App extends StatelessWidget {
+  final EnvironmentConfig config;
+
+  const App({required this.config, super.key});
 
   @override
   Widget build(BuildContext context) {
